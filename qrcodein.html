@@ -198,27 +198,29 @@
     }, 1000)
 
 
-    <!--const params = new URLSearchParams(location.search)-->
-    const params = new URLSearchParams('isJx=true')
+    //const params = new URLSearchParams(location.search)
+    //const params = new URLSearchParams("name=昝新羽&id=20211249708&school=电信院&isJx=true")
+    const params = new URLSearchParams("name=舒梁&id=20211249254&school=电信院&isJx=true")
 
     let qrColor
-    if (params.get('isJx')) {
+    //if (params.get('isJx')) {
       $('#div_yfx').show()
       $('#div_bt').text('销假进校二维码')
       $('#div_ewm_p').addClass('jx')
       qrColor = '#4EB16E'
-    }
+    /*}
     else {
       $('#div_bt').text('请假出校二维码')
       $('#div_ewm_p').addClass('cx')
       qrColor = '#4e6ab1'
     }
+    */
 
-    $('#div_xm').text(('舒梁') + ' ' + '20211249254')
-    $('#div_bm').text('电信院')
+    //$('#div_xm').text(('舒梁') + ' ' + '20211249254')
+    //$('#div_bm').text('电信院')
 
-    <!--$('#div_xm').text(params.get('name') + ' ' + params.get('id')) -->
-    <!--$('#div_bm').text(params.get('school')) -->
+    $('#div_xm').text(params.get('name') + ' ' + params.get('id'))
+    $('#div_bm').text(params.get('school'))
 
       function createQrCode(text, color) {
         new QRCode(document.getElementById('div_ewm'), {
@@ -229,15 +231,19 @@
         })
       }
 	
-	  const url = 'https://skyland22.gitee.io/html/scan123456789012345678901234567890/applin.html'
+	  //const url = 'https://skyland22.github.io/scan123456789012345678901234567890/jumpin.html'
+    const url = 'https://skyland22.github.io/eoffice/scan123456789012345678901234567890/jumpin.html'
     //const url = 'https://nya.fish/rick#123456789012345678901234567890qwertyuiop'
     $('#div_ewm').html(createQrCode(url, qrColor))
 
     const date = new Date()
     date.setMinutes(0)
-    date.setHours(date.getHours() - 1)
+    //date.setHours(date.getHours() - 1)
+    date.setHours(0)
     const startTime = date.format('yyyy-MM-dd hh:mm')
-    date.setHours(date.getHours() + 2)
+    //date.setHours(date.getHours() + 2)
+    date.setHours(23)
+    date.setMinutes(59)
     const endTime = date.format('yyyy-MM-dd hh:mm')
 
     $('#div_yxsj').html('有效时间：' + startTime + '至' + endTime)
@@ -249,8 +255,6 @@
       }
     })
   </script>
-
-
 </body>
 
 </html>
