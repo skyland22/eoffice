@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="" />
     <link rel="stylesheet" type="text/css" href="" />
     <link rel="stylesheet" type="text/css" href="" />
-    <title>申请人 - 学生请假申请</title>
+    <title>申请人销假 - 学生请假申请</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta http-equiv="Pragma" content="no-cache">
@@ -14,8 +14,8 @@
     <meta name="keywords" content="InfoPlus">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta itemscope="csrfToken" content="j57oHo4qiwKbOhR7loiy2ed3sCkgIouI">
-    <meta name="theme-color" content="#00ACC1">
+    <meta itemscope="csrfToken" content="DIakMzschQEO65nJcyZZl9q7EaPgnVxp">
+    <meta name="theme-color" content="#4CAF50">
     <!-- disable phone number link in mobile safari -->
     <meta name="format-detection" content="telephone=no">
     <link rel="icon" type="image/png" href="">
@@ -27,37 +27,9 @@
 
     <link id="via_inject_css_blocker" type="text/css" rel="stylesheet" href="">
     <link type="text/css" media="all" rel="stylesheet" id="infoplus_view_2539_0_cached_link" href="">
-
 </head>
 
 <style>
-    @font-face {
-        font-family: 'iconfont';
-        /* Project id 3572908 */
-        src: url('//at.alicdn.com/t/c/font_3572908_6xus8huqvb9.woff2?t=1659852633214') format('woff2'),
-            url('//at.alicdn.com/t/c/font_3572908_6xus8huqvb9.woff?t=1659852633214') format('woff'),
-            url('//at.alicdn.com/t/c/font_3572908_6xus8huqvb9.ttf?t=1659852633214') format('truetype');
-    }
-
-    i {
-        font-family: "icomoon" !important;
-        speak: none;
-        font-style: normal;
-        font-weight: normal;
-        font-variant: normal;
-        text-transform: none;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale
-    }
-
-    .i-icon-menu:before {
-        content: ""
-    }
-
-    .i-icon-more-vert:before {
-        content: ""
-    }
-
     div.form_remark_title {
         overflow: hidden
     }
@@ -71,29 +43,10 @@
         position: relative;
         top: 2px
     }
-
-    li.tool_button {
-        position: relative;
-        text-align: center;
-        list-style: none;
-        float: right
-    }
 </style>
 
 <body>
     <div id="help_content"></div>
-    <!--
-<div id="div_loader" style="display: none;">
-    <div id="div_loader_content">
-        <div id="div_loader_text">
-            <span class="content">加载完成(100%)</span>
-        </div>
-        <div id="div_loader_progress" style="overflow: hidden; height: 0px; opacity: 0.5;">
-            <div id="div_loader_progress_percent" style="right: 0%;"></div>
-        </div>
-    </div>
-</div>
--->
     <div id="form_do_action_dialog" style="display:none;">
         <div id="form_do_action_message_description" style="display:none;"></div>
         <div id="form_do_action_show_remark" class="clearfix"></div>
@@ -116,53 +69,80 @@
         <form id="renderForm">
             <div id="div_content" class="div_content">
                 <div id="header_holder" style="top: 0px;">
-                    <div id="title_holder" class="doing">
-                        <div id="title_icon" class="title_icon"><a href="doing.html"><img src="images/icon_menu_1.png"
+                    <div id="title_holder" class="complete">
+                        <div id="title_icon" class="title_icon"><a href="todo.html"><img src="images/icon_menu_1.png"
                                     width="20px"></a>
                         </div>
                         <div id="title_content" style="max-width: 223px;">
-                            <nobr>学生请假申请:申请人(提交,<span class="name"></span>)</nobr>
+                            <nobr>学生请假申请:申请人销假(已完成)</nobr>
                         </div>
                         <div>
-                            <div id="title_description_short" style="display: block;">流水号:<span class="water"></span>
+                            <div id="title_description" style="display: none;">流水号:<span class="water"></span>,主管部门:公共服务,联系方式:025-58731542
                             </div>
+                            <div id="title_description_short" style="display: block;">流水号:<span class="water"></span></div>
                         </div>
                     </div>
+                    <!-- 1.form command bar -->
                     <div id="command_holder">
                         <div class="clear"></div>
-                        <div id="command_bar_title_icon" class="title_icon doing" style="display: none;"><i
+                        <div id="command_bar_title_icon" class="title_icon complete" style="display: none;"><i
                                 class="i-icon-menu"></i></div>
                         <ul id="form_command_bar">
-                            <li class="command_button kill" style=""><a class="command_button_content kill"
-                                    name="infoplus_action_1056_kill" id="infoplus_action_1056_kill">
-                                    <nobr>终止</nobr>
-                                </a></li>
+                            <li class="command_menu btn-group hide" id="command_menu"><a
+                                    class="command_button_content dropdown-toggle command_button_all" href=""
+                                    data-toggle="dropdown">所有操作... <span class="caret"></span></a>
+                                <ul class="dropdown-menu" id="command_menu_dropdown"></ul><span
+                                    class="alpha40 scroll_tip left" style="display: none;">点此区域按钮提交</span>
+                            </li>
+                            <li class="no_action">此任务已处理,您无需任何操作</li>
+                            <li class="tool_button hide" style="display: none;"><a id="FormCommandGoTop"
+                                    class="tool_button" href=""><i class="i-icon-publish"></i></a></li>
                         </ul>
                     </div>
-                    <!--
-                    <div id="command_holder">
-                        <div class="clear"></div>
-                        <ul id="form_command_bar">
-                            <li class="no_action">此任务已处理,您无需任何操作</li>
-                        </ul>
-                    </div>-->
-                    <!-- 1.form command bar  
-        <div id="command_holder">
-            <div class="clear"></div>
-            <div id="command_bar_title_icon" class="title_icon doing" style="display: none;"><i class="i-icon-menu"></i></div><ul id="form_command_bar"><li class="command_button kill" style=""><a class="command_button_content kill" name="infoplus_action_1056_kill" id="infoplus_action_1056_kill"><nobr>终止</nobr></a><span class="alpha40 scroll_tip left" style="display: none;">点此区域按钮提交</span></li><li class="command_menu btn-group hide" id="command_menu"><a class="command_button_content dropdown-toggle command_button_all" href="" data-toggle="dropdown">所有操作... <span class="caret"></span></a><ul class="dropdown-menu" id="command_menu_dropdown"><li><a title="终止本流程" name="infoplus_command_menu_6590_kill" id="infoplus_command_menu_6590_kill">终止</a></li></ul><span class="alpha40 scroll_tip left" style="display: none;">点此区域按钮提交</span></li><li class="tool_button"></li><li class="tool_button hide" style="display: none;"><a id="FormCommandGoTop" class="tool_button" href=""><i class="i-icon-publish"></i></a></li></ul>
-        </div>
-       -->
                 </div>
                 <div id="renderContent_holder" style="">
+                    <div id="nav_menu" style="display: none; top: 94px;">
+                        <ul class="nav_menu_group">
+                            <li id="nav_menu_history"><span class="menu_icon menu_icon_history"><i
+                                        class="i-icon-history"></i></span><span class="menu_text">历史</span></li>
+                            <li id="nav_menu_save"><span class="menu_icon menu_icon_save disabled"><i
+                                        class="i-icon-save"></i></span><span class="menu_text">保存</span></li>
+                            <li id="nav_menu_print"><span class="menu_icon menu_icon_print disabled"><i
+                                        class="i-icon-print"></i></span><span class="menu_text">打印</span></li>
+                            <li id="nav_menu_download"><span class="menu_icon menu_icon_download disabled"><i
+                                        class="i-icon-cloud-download"></i></span><span class="menu_text">下载</span></li>
+                            <li id="nav_menu_instruction"><span class="menu_icon menu_icon_instruction"><i
+                                        class="i-icon-local-library"></i></span><span class="menu_text">填表说明</span></li>
+                        </ul>
+                        <ul class="nav_menu_group">
+                            <li class="nav_menu_line"></li>
+                        </ul>
+                        <ul class="nav_menu_group">
+                            <li id="nav_menu_help"><span class="menu_icon menu_icon_help"><i
+                                        class="i-icon-help"></i></span><span class="menu_text">帮助</span></li>
+                        </ul>
+                    </div>
                     <div id="form_milestone_holder" class="form_milestone_holder round-corner"
                         style="visibility: visible;">
                         <div class="form_milestone_holder_wrap_outer shadow round-corner" style="width: 360px;">
                             <div class="form_milestone_holder_wrap_inner">
-                                <ul class="form_milestone_view" style="width: 519px;">
+                                <ul class="form_milestone_view" style="width: 763px;">
                                     <li class="form_milestone_step green first">
                                         <div class="floater green singleLine"></div>
                                         <div class="content">
                                             <div class="content_name">填写申请</div>
+                                        </div>
+                                    </li>
+                                    <li class="form_milestone_step_arrow_li green">
+                                        <div class="form_milestone_step_arrow_wrap">
+                                            <div class="form_milestone_step_arrow green"></div>
+                                            <div class="form_milestone_step_arrow white"></div>
+                                        </div>
+                                    </li>
+                                    <li class="form_milestone_step green">
+                                        <div class="floater green singleLine"></div>
+                                        <div class="content">
+                                            <div class="content_name">导师审核</div>
                                         </div>
                                     </li>
                                     <li class="form_milestone_step_arrow_li green">
@@ -189,28 +169,40 @@
                                             <div class="content_name">学院书记审核</div>
                                         </div>
                                     </li>
-                                    <li class="form_milestone_step_arrow_li blue">
+                                    <li class="form_milestone_step_arrow_li green">
                                         <div class="form_milestone_step_arrow_wrap">
                                             <div class="form_milestone_step_arrow green"></div>
                                             <div class="form_milestone_step_arrow white"></div>
                                         </div>
                                     </li>
-                                    <li class="form_milestone_step blue">
-                                        <div class="floater blue singleLine"></div>
+                                    <li class="form_milestone_step green">
+                                        <div class="floater green singleLine"></div>
                                         <div class="content">
                                             <div class="content_name">申请人销假</div>
                                         </div>
                                     </li>
-                                    <li class="form_milestone_step_arrow_li gray">
+                                    <li class="form_milestone_step_arrow_li green">
                                         <div class="form_milestone_step_arrow_wrap">
-                                            <div class="form_milestone_step_arrow blue"></div>
+                                            <div class="form_milestone_step_arrow green"></div>
                                             <div class="form_milestone_step_arrow white"></div>
                                         </div>
                                     </li>
-                                    <li class="form_milestone_step gray last">
-                                        <div class="floater gray singleLine"></div>
+                                    <li class="form_milestone_step green">
+                                        <div class="floater green singleLine"></div>
                                         <div class="content">
                                             <div class="content_name">辅导员审核</div>
+                                        </div>
+                                    </li>
+                                    <li class="form_milestone_step_arrow_li green">
+                                        <div class="form_milestone_step_arrow_wrap">
+                                            <div class="form_milestone_step_arrow green"></div>
+                                            <div class="form_milestone_step_arrow white"></div>
+                                        </div>
+                                    </li>
+                                    <li class="form_milestone_step green last">
+                                        <div class="floater green singleLine"></div>
+                                        <div class="content">
+                                            <div class="content_name">完成（审核通过）</div>
                                         </div>
                                     </li>
                                 </ul>
@@ -223,7 +215,7 @@
                         <div id="form_holder" style="width: 360px; display: block;">
                             <div class="infoplus_view_wrap_outer">
                                 <div class="infoplus_view_wrap_inner">
-                                    <div id="infoplus_view_2539_0" class="infoplus_view">
+                                    <div id="infoplus_view_1557_0" class="infoplus_view">
                                         <div align="center">
                                             <table
                                                 style="BORDER-TOP-STYLE: none; WORD-WRAP: break-word; BORDER-LEFT-STYLE: none; WIDTH: 360px; BORDER-COLLAPSE: collapse; TABLE-LAYOUT: fixed; BORDER-BOTTOM-STYLE: none; BORDER-RIGHT-STYLE: none"
@@ -267,14 +259,12 @@
                                                                                 colspan="2">
                                                                                 <div align="center">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_8311e3bc-27ca-4536-8045-4c8cf40f7892_Container">
+                                                                                        id="label_e27fc0f6-50db-4fdf-9568-b35e14a4a042_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_8311e3bc-27ca-4536-8045-4c8cf40f7892">
-                                                                                            <span
-                                                                                                class="appdata"></span>
-                                                                                        </div>
+                                                                                            id="label_e27fc0f6-50db-4fdf-9568-b35e14a4a042">
+                                                                                            <span class="appdata"></span></div>
                                                                                     </div>
                                                                                 </div>
                                                                             </td>
@@ -292,13 +282,12 @@
                                                                                 colspan="2">
                                                                                 <div align="center">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_7deea275-3d3f-4bec-87c0-8ebbb86fcc63_Container">
+                                                                                        id="label_a408f8b2-1323-49f6-bfed-bd4419e648f0_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_7deea275-3d3f-4bec-87c0-8ebbb86fcc63">
-                                                                                            <span class="id"></span>
-                                                                                        </div>
+                                                                                            id="label_a408f8b2-1323-49f6-bfed-bd4419e648f0">
+                                                                                            <span class="id"></span></div>
                                                                                     </div>
                                                                                 </div>
                                                                             </td>
@@ -316,13 +305,12 @@
                                                                                 colspan="2">
                                                                                 <div align="center">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_2019303b-8c20-4828-8452-04060a68332b_Container">
+                                                                                        id="label_a671597d-021f-490b-a5cf-266146a39e85_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_2019303b-8c20-4828-8452-04060a68332b">
-                                                                                            <span class="name"></span>
-                                                                                        </div>
+                                                                                            id="label_a671597d-021f-490b-a5cf-266146a39e85">
+                                                                                            <span class="name"></span></div>
                                                                                     </div>
                                                                                 </div>
                                                                             </td>
@@ -340,7 +328,8 @@
                                                                                 <div align="center">
                                                                                     <font size="3">
                                                                                         校&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                                        区<font size="3" color="#ff0000">*</font>
+                                                                                        区<font size="3" color="#ff0000">
+                                                                                            *</font>
                                                                                     </font>
                                                                                 </div>
                                                                             </td>
@@ -384,13 +373,12 @@
                                                                                 colspan="2">
                                                                                 <div align="center">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_f530dd57-778b-41cf-8e5e-87c6cbeef351_Container">
+                                                                                        id="label_57e80d22-ebfc-48e9-a812-993affd796f7_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_f530dd57-778b-41cf-8e5e-87c6cbeef351">
-                                                                                            <span class="gender"></span>
-                                                                                        </div>
+                                                                                            id="label_57e80d22-ebfc-48e9-a812-993affd796f7">
+                                                                                            <span class="gender"></span></div>
                                                                                     </div>
                                                                                 </div>
                                                                             </td>
@@ -408,13 +396,12 @@
                                                                                 colspan="2">
                                                                                 <div align="center">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_681f1b4e-8ca8-4ceb-922e-090ed6e5d57b_Container">
+                                                                                        id="label_a246bf99-1d11-41a2-b682-e99373621800_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_681f1b4e-8ca8-4ceb-922e-090ed6e5d57b">
-                                                                                            <span class="number"></span>
-                                                                                        </div>
+                                                                                            id="label_a246bf99-1d11-41a2-b682-e99373621800">
+                                                                                            <span class="number"></span></div>
                                                                                     </div>
                                                                                 </div>
                                                                             </td>
@@ -430,11 +417,11 @@
                                                                                 colspan="2">
                                                                                 <div align="center">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_ffbc7084-cc73-4d0e-9422-288de321a3ab_Container">
+                                                                                        id="label_9b7ceaa6-020d-4858-a17b-7c96db97e569_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_ffbc7084-cc73-4d0e-9422-288de321a3ab">
+                                                                                            id="label_9b7ceaa6-020d-4858-a17b-7c96db97e569">
                                                                                             电信院</div>
                                                                                     </div>
                                                                                 </div>
@@ -454,11 +441,11 @@
                                                                                 colspan="2">
                                                                                 <div align="center">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_44f5bdb7-067b-4378-a4a1-63d8f3450e6d_Container">
+                                                                                        id="label_b0532315-c137-4dfa-ba73-9eb709b963e4_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_44f5bdb7-067b-4378-a4a1-63d8f3450e6d">
+                                                                                            id="label_b0532315-c137-4dfa-ba73-9eb709b963e4">
                                                                                             电子信息</div>
                                                                                     </div>
                                                                                 </div>
@@ -478,11 +465,11 @@
                                                                                 colspan="2">
                                                                                 <div align="center">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_4edd1074-3ff7-4d93-b4ae-69c154857b9d_Container">
+                                                                                        id="label_05336264-7fb6-43a6-b324-fc026cc937cd_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_4edd1074-3ff7-4d93-b4ae-69c154857b9d">
+                                                                                            id="label_05336264-7fb6-43a6-b324-fc026cc937cd">
                                                                                             专硕班</div>
                                                                                     </div>
                                                                                 </div>
@@ -501,13 +488,12 @@
                                                                                 colspan="2">
                                                                                 <div align="center">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_37a27f9d-18e3-4b90-8bc1-84aae9be3b51_Container">
+                                                                                        id="label_8b49089a-37ef-429c-8039-95b64bd35c1e_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_37a27f9d-18e3-4b90-8bc1-84aae9be3b51">
-                                                                                            <span class="idnum"></span>
-                                                                                        </div>
+                                                                                            id="label_8b49089a-37ef-429c-8039-95b64bd35c1e">
+                                                                                            <span class="idnum"></span></div>
                                                                                     </div>
                                                                                 </div>
                                                                             </td>
@@ -525,13 +511,12 @@
                                                                                 colspan="2">
                                                                                 <div align="center">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_8bc55637-32ce-42ec-871a-f6ab020b09fd_Container">
+                                                                                        id="label_9aa9ee2f-185b-46d0-ab9d-dd5a6d793945_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_8bc55637-32ce-42ec-871a-f6ab020b09fd">
-                                                                                            <span class="counselor"></span>
-                                                                                        </div>
+                                                                                            id="label_9aa9ee2f-185b-46d0-ab9d-dd5a6d793945">
+                                                                                            <span class="counselor"></span></div>
                                                                                     </div>
                                                                                 </div>
                                                                             </td>
@@ -549,13 +534,12 @@
                                                                                 colspan="2">
                                                                                 <div align="center">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_f69d335c-38f5-41d2-9a13-fdcb17decb1d_Container">
+                                                                                        id="label_d080002e-62de-4fe1-92db-c25afe9035ed_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_f69d335c-38f5-41d2-9a13-fdcb17decb1d">
-                                                                                            <span class="mentor"></span>
-                                                                                        </div>
+                                                                                            id="label_d080002e-62de-4fe1-92db-c25afe9035ed">
+                                                                                            <span class="mentor"></span></div>
                                                                                     </div>
                                                                                 </div>
                                                                             </td>
@@ -592,11 +576,11 @@
                                                                                 colspan="2">
                                                                                 <div align="left">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_ddb7046e-cd22-434f-aef7-06e379f36c4f_Container">
+                                                                                        id="label_40057036-bbf5-43da-95d7-b1b1b482dafa_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             size="1" title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_ddb7046e-cd22-434f-aef7-06e379f36c4f">
+                                                                                            id="label_40057036-bbf5-43da-95d7-b1b1b482dafa">
                                                                                             事假</div>
                                                                                     </div>
                                                                                 </div>
@@ -613,16 +597,10 @@
                                                                             </td>
                                                                             <td style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2"
                                                                                 colspan="2">
-                                                                                <div><img src="images/select_none.png"
-                                                                                        width="15px"><label
-                                                                                        for="V0_CTRL242"
-                                                                                        class="infoplus_radioLabel">
+                                                                                <div><img src="images/select_none.png" width="15px"><label for="V0_CTRL242" class="infoplus_radioLabel">
                                                                                         <font size="3">是</font>
                                                                                     </label></div>
-                                                                                <div><img src="images/selected.png"
-                                                                                        width="15px"><label
-                                                                                        for="V0_CTRL243"
-                                                                                        class="infoplus_radioLabel">
+                                                                                <div><img src="images/selected.png" width="15px"><label for="V0_CTRL243" class="infoplus_radioLabel">
                                                                                         <font size="3">否</font>
                                                                                     </label></div>
                                                                             </td>
@@ -682,11 +660,11 @@
                                                                                 colspan="2">
                                                                                 <div align="center">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_8fe50b0f-cf3c-41e8-9ac2-3abadbec6bfe_Container">
+                                                                                        id="label_6ee520e8-c47c-4189-ad54-9b8eba746c78_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_8fe50b0f-cf3c-41e8-9ac2-3abadbec6bfe">
+                                                                                            id="label_6ee520e8-c47c-4189-ad54-9b8eba746c78">
                                                                                             江苏省</div>
                                                                                     </div>
                                                                                 </div>
@@ -697,11 +675,11 @@
                                                                                 colspan="2">
                                                                                 <div align="center">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_12bbb45e-48d5-4312-8b60-46ca817496ce_Container">
+                                                                                        id="label_663aadd4-92b6-44d9-8225-454e8db18455_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_12bbb45e-48d5-4312-8b60-46ca817496ce">
+                                                                                            id="label_663aadd4-92b6-44d9-8225-454e8db18455">
                                                                                             南京市</div>
                                                                                     </div>
                                                                                 </div>
@@ -712,11 +690,11 @@
                                                                                 colspan="2">
                                                                                 <div align="center">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_3a32d971-3694-4722-85e3-f53bf04c5fd3_Container">
+                                                                                        id="label_881c8ff6-097f-4d2c-a4bc-c80a72897a21_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_3a32d971-3694-4722-85e3-f53bf04c5fd3">
+                                                                                            id="label_881c8ff6-097f-4d2c-a4bc-c80a72897a21">
                                                                                             江北新区</div>
                                                                                     </div>
                                                                                 </div>
@@ -735,12 +713,12 @@
                                                                                 colspan="2">
                                                                                 <div align="center">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_3e861ec8-acbc-4749-9004-95f860eb32ef_Container">
+                                                                                        id="label_8db0aadd-a261-4354-9d5a-acba9154bc5e_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_3e861ec8-acbc-4749-9004-95f860eb32ef">
-                                                                                            买药，麻烦老师了</div>
+                                                                                            id="label_8db0aadd-a261-4354-9d5a-acba9154bc5e">
+                                                                                            买药，麻烦老师了。</div>
                                                                                     </div>
                                                                                 </div>
                                                                             </td>
@@ -758,14 +736,12 @@
                                                                                 style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2">
                                                                                 <div align="center">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_0fec3c5c-7720-4027-98a0-fe3b6b3a1cfe_Container">
+                                                                                        id="label_6b586397-8d12-4370-a2f6-7d29dcd3df9d_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_0fec3c5c-7720-4027-98a0-fe3b6b3a1cfe">
-                                                                                            <span
-                                                                                                class="appdata"></span>
-                                                                                        </div>
+                                                                                            id="label_6b586397-8d12-4370-a2f6-7d29dcd3df9d">
+                                                                                            <span class="appdata"></span></div>
                                                                                     </div>
                                                                                 </div>
                                                                             </td>
@@ -773,13 +749,12 @@
                                                                                 style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2">
                                                                                 <div align="center">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_d73a4b8e-2f42-478d-8093-5ee3446b8cec_Container">
+                                                                                        id="label_0f03e40e-66f8-49ad-9e5d-52038dcbc282_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_d73a4b8e-2f42-478d-8093-5ee3446b8cec">
-                                                                                            <span class="appstarttime"></span>
-                                                                                        </div>
+                                                                                            id="label_0f03e40e-66f8-49ad-9e5d-52038dcbc282">
+                                                                                            <span class="appstarttime"></span></div>
                                                                                     </div>
                                                                                 </div>
                                                                             </td>
@@ -797,14 +772,12 @@
                                                                                 style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2">
                                                                                 <div align="center">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_a34808b9-b679-49dd-965d-2685de3d1116_Container">
+                                                                                        id="label_85ac3c7d-bea1-4cda-8766-62c9064fec0b_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_a34808b9-b679-49dd-965d-2685de3d1116">
-                                                                                            <span
-                                                                                                class="appdata"></span>
-                                                                                        </div>
+                                                                                            id="label_85ac3c7d-bea1-4cda-8766-62c9064fec0b">
+                                                                                            <span class="appdata"></span></div>
                                                                                     </div>
                                                                                 </div>
                                                                             </td>
@@ -812,14 +785,12 @@
                                                                                 style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2">
                                                                                 <div align="center">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_2ddae1f4-3b21-465d-9f5f-226cebfb8085_Container">
+                                                                                        id="label_514bc5e5-94bf-4cfc-8067-cc25bc26dc81_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_2ddae1f4-3b21-465d-9f5f-226cebfb8085">
-                                                                                            <span
-                                                                                                class="appendtime"></span>
-                                                                                        </div>
+                                                                                            id="label_514bc5e5-94bf-4cfc-8067-cc25bc26dc81">
+                                                                                            <span class="appendtime"></span></div>
                                                                                     </div>
                                                                                 </div>
                                                                             </td>
@@ -835,11 +806,11 @@
                                                                                 colspan="2">
                                                                                 <div align="center">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_69f6ab48-5584-4f27-b1d9-1af46aa57594_Container">
+                                                                                        id="label_e77da9f4-3d89-406b-b13c-10a1611ff84b_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_69f6ab48-5584-4f27-b1d9-1af46aa57594">
+                                                                                            id="label_e77da9f4-3d89-406b-b13c-10a1611ff84b">
                                                                                             1</div>
                                                                                     </div>
                                                                                 </div>
@@ -860,12 +831,16 @@
                                                                             <td style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2"
                                                                                 colspan="2">
                                                                                 <div align="center">
-                                                                                    <font size="3"><input type="text"
-                                                                                            style="width: 100%; display: none;"
-                                                                                            class="xdTextBox infoplus_control infoplus_editControl"
-                                                                                            title="" id="V0_CTRL11"
-                                                                                            name="fieldCSFZS"
-                                                                                            disabled="disabled"></font>
+                                                                                    <font size="3">
+                                                                                        <div class="infoplus_labelControlContainer inline"
+                                                                                            id="label_7404a9bc-42fd-493c-8d6a-e8bc8e708bda_Container">
+                                                                                            <div style="WIDTH: 100%"
+                                                                                                title=""
+                                                                                                class="infoplus_control infoplus_labelControl inline"
+                                                                                                id="label_7404a9bc-42fd-493c-8d6a-e8bc8e708bda">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </font>
                                                                                 </div>
                                                                             </td>
                                                                             <td
@@ -911,13 +886,6 @@
                                                                                                     bordercolor="buttontext"
                                                                                                     style="WORD-WRAP: break-word; BORDER-TOP: medium none; BORDER-RIGHT: medium none; WIDTH: 182px; BORDER-COLLAPSE: collapse; TABLE-LAYOUT: fixed; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none"
                                                                                                     class="xdLayout">
-                                                                                                    <colgroup>
-                                                                                                        <col width="182"
-                                                                                                            style="WIDTH: 182px">
-                                                                                                    </colgroup>
-                                                                                                    <tbody>
-                                                                                                
-                                                                                                    </tbody>
                                                                                                 </table>
                                                                                             </div>
                                                                                         </div>
@@ -940,16 +908,10 @@
                                                                             </td>
                                                                             <td style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2"
                                                                                 colspan="2">
-                                                                                <div><img src="images/select_none.png"
-                                                                                        width="15px"><label
-                                                                                        for="V0_CTRL253"
-                                                                                        class="infoplus_radioLabel">
+                                                                                <div><img src="images/select_none.png" width="15px"><label for="V0_CTRL253" class="infoplus_radioLabel">
                                                                                         <font size="3">有</font>
                                                                                     </label></div>
-                                                                                <div><img src="images/selected.png"
-                                                                                        width="15px"><label
-                                                                                        for="V0_CTRL254"
-                                                                                        class="infoplus_radioLabel">
+                                                                                <div><img src="images/selected.png" width="15px"><label for="V0_CTRL254" class="infoplus_radioLabel">
                                                                                         <font size="3">无</font>
                                                                                     </label></div>
                                                                             </td>
@@ -1000,11 +962,11 @@
                                                                                                                 <div
                                                                                                                     align="left">
                                                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                                                        id="label_74b200c4-0a99-4cab-9cf2-4889e6bade4a_Container">
+                                                                                                                        id="label_442162ce-2cb4-4a78-ad82-2ba39eda7380_Container">
                                                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                                                             title=""
                                                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                                                            id="label_74b200c4-0a99-4cab-9cf2-4889e6bade4a">
+                                                                                                                            id="label_442162ce-2cb4-4a78-ad82-2ba39eda7380">
                                                                                                                         </div>
                                                                                                                     </div>
                                                                                                                 </div>
@@ -1117,11 +1079,11 @@
                                                                                 colspan="3">
                                                                                 <div align="left">
                                                                                     <div class="infoplus_labelControlContainer"
-                                                                                        id="label_e76898a4-d98e-4ccc-ae61-70faa29ea2de_Container">
+                                                                                        id="label_cfcbe6cf-8b35-4d1d-a89c-77d3b7cf4735_Container">
                                                                                         <div style="font-size: small; font-family: &quot;PingFang SC&quot;, 微软雅黑; width: 100%; min-height: 50px;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl"
-                                                                                            id="label_e76898a4-d98e-4ccc-ae61-70faa29ea2de">
+                                                                                            id="label_cfcbe6cf-8b35-4d1d-a89c-77d3b7cf4735">
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -1146,11 +1108,11 @@
                                                                                 colspan="3">
                                                                                 <div align="left">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_e024e63e-ae20-495d-8a43-51317633ba83_Container">
+                                                                                        id="label_e88bbbf3-0d62-4874-b62d-aa38021b1f96_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_e024e63e-ae20-495d-8a43-51317633ba83">
+                                                                                            id="label_e88bbbf3-0d62-4874-b62d-aa38021b1f96">
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -1175,11 +1137,11 @@
                                                                                 colspan="3">
                                                                                 <div align="left">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_c1061ff7-278c-4c86-a94d-ab104206ff64_Container">
+                                                                                        id="label_12478b8c-e6a4-4a73-a4cd-154fc01c3260_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_c1061ff7-278c-4c86-a94d-ab104206ff64">
+                                                                                            id="label_12478b8c-e6a4-4a73-a4cd-154fc01c3260">
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -1194,25 +1156,13 @@
                                                                             </td>
                                                                             <td style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2"
                                                                                 colspan="3">
-                                                                                <div align="left"><img
-                                                                                        src="images/selected.png"
-                                                                                        width="15px"><label
-                                                                                        for="V0_CTRL231"
-                                                                                        class="infoplus_radioLabel">
+                                                                                <div align="left"><img src="images/selected.png" width="15px"><label for="V0_CTRL231" class="infoplus_radioLabel">
                                                                                         <font size="3">同意</font>
                                                                                     </label></div>
-                                                                                <div align="left"><img
-                                                                                        src="images/select_none.png"
-                                                                                        width="15px"><label
-                                                                                        for="V0_CTRL232"
-                                                                                        class="infoplus_radioLabel">
+                                                                                <div align="left"><img src="images/select_none.png" width="15px"><label for="V0_CTRL232" class="infoplus_radioLabel">
                                                                                         <font size="3">退回</font>
                                                                                     </label></div>
-                                                                                <div align="left"><img
-                                                                                        src="images/select_none.png"
-                                                                                        width="15px"><label
-                                                                                        for="V0_CTRL233"
-                                                                                        class="infoplus_radioLabel">
+                                                                                <div align="left"><img src="images/select_none.png" width="15px"><label for="V0_CTRL233" class="infoplus_radioLabel">
                                                                                         <font size="3">不同意</font>
                                                                                     </label></div>
                                                                             </td>
@@ -1222,10 +1172,112 @@
                                                                                 colspan="3">
                                                                                 <div align="left">
                                                                                     <div class="infoplus_labelControlContainer"
-                                                                                        id="label_7d05e0ff-c00c-4431-bae3-682999305cbc_Container">
+                                                                                        id="label_1b52c3eb-c7fa-4e0f-8bd1-46a529d97c72_Container">
                                                                                         <div style="font-size: small; font-family: &quot;PingFang SC&quot;, 微软雅黑; width: 100%; min-height: 50px;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl"
+                                                                                            id="label_1b52c3eb-c7fa-4e0f-8bd1-46a529d97c72">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td
+                                                                                style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2">
+                                                                                <div align="center">
+                                                                                    <font size="3">审批人</font>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2"
+                                                                                colspan="3">
+                                                                                <div align="left">
+                                                                                    <div class="infoplus_labelControlContainer inline"
+                                                                                        id="label_22c779f1-4fa7-4383-a3e1-c93625638805_Container">
+                                                                                        <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
+                                                                                            title=""
+                                                                                            class="infoplus_control infoplus_labelControl inline"
+                                                                                            id="label_22c779f1-4fa7-4383-a3e1-c93625638805">
+                                                                                            <span class="counselor"></span></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td
+                                                                                style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2">
+                                                                                <div align="center">
+                                                                                    <font size="3">审批时间</font>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2"
+                                                                                colspan="3">
+                                                                                <div align="left">
+                                                                                    <div class="infoplus_labelControlContainer inline"
+                                                                                        id="label_676f8885-c366-4416-9abf-61fed91c02bd_Container">
+                                                                                        <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
+                                                                                            title=""
+                                                                                            class="infoplus_control infoplus_labelControl inline"
+                                                                                            id="label_676f8885-c366-4416-9abf-61fed91c02bd">
+                                                                                            <span class="appdata"></span></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr class="fake">
+                                                                            <td
+                                                                                style="border-width: 0px; border-style: none; border-color: rgb(0, 112, 192); vertical-align: middle; padding: 0px; background-color: rgb(242, 242, 242);">
+                                                                            </td>
+                                                                            <td style="border-width: 0px; border-style: none; border-color: rgb(0, 112, 192); vertical-align: middle; padding: 0px; background-color: rgb(242, 242, 242);"
+                                                                                colspan="3"></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2"
+                                                                                rowspan="2">
+                                                                                <div align="center">
+                                                                                    <font size="3">
+                                                                                        <div>
+                                                                                            <div>学院分管学生</div>
+                                                                                        </div>
+                                                                                        <div>
+                                                                                            <div>工作副书记</div>
+                                                                                        </div>
+                                                                                    </font>
+                                                                                </div>
+                                                                                <div align="center">
+                                                                                    <font size="3">
+                                                                                        <div>
+                                                                                            <div></div>
+                                                                                        </div>
+                                                                                        <div>
+                                                                                            <div>意见</div>
+                                                                                        </div>
+                                                                                    </font>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2"
+                                                                                colspan="3">
+                                                                                <div align="left"><img src="images/selected.png" width="15px"><label for="V0_CTRL231"
+                                                                                        class="infoplus_radioLabel">
+                                                                                        <font size="3">同意</font>
+                                                                                    </label></div>
+                                                                                <div align="left"><img src="images/select_none.png" width="15px"><label for="V0_CTRL232"
+                                                                                        class="infoplus_radioLabel">
+                                                                                        <font size="3">退回</font>
+                                                                                    </label></div>
+                                                                                <div align="left"><img src="images/select_none.png" width="15px"><label for="V0_CTRL233"
+                                                                                        class="infoplus_radioLabel">
+                                                                                        <font size="3">不同意</font>
+                                                                                    </label></div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2"
+                                                                                colspan="3">
+                                                                                <div align="left">
+                                                                                    <div class="infoplus_labelControlContainer" id="label_7d05e0ff-c00c-4431-bae3-682999305cbc_Container">
+                                                                                        <div style="font-size: small; font-family: &quot;PingFang SC&quot;, 微软雅黑; width: 100%; min-height: 50px;"
+                                                                                            title="" class="infoplus_control infoplus_labelControl"
                                                                                             id="label_7d05e0ff-c00c-4431-bae3-682999305cbc">
                                                                                         </div>
                                                                                     </div>
@@ -1244,11 +1296,10 @@
                                                                                 <div align="left">
                                                                                     <div class="infoplus_labelControlContainer inline"
                                                                                         id="label_354db938-896b-4889-b50a-86bb8442c437_Container">
-                                                                                        <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
-                                                                                            title=""
+                                                                                        <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;" title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
                                                                                             id="label_354db938-896b-4889-b50a-86bb8442c437">
-                                                                                            <span class="counselor"></span>
+                                                                                            <span class="DSecretary"></span>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -1266,302 +1317,10 @@
                                                                                 <div align="left">
                                                                                     <div class="infoplus_labelControlContainer inline"
                                                                                         id="label_ecedc880-2e24-4bb6-985c-51552a17100c_Container">
-                                                                                        <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
-                                                                                            title=""
+                                                                                        <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;" title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
                                                                                             id="label_ecedc880-2e24-4bb6-985c-51552a17100c">
                                                                                             <span class="appdata"></span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr class="fake">
-                                                                            <td
-                                                                                style="border-width: 0px; border-style: none; border-color: rgb(0, 112, 192); vertical-align: middle; padding: 0px; background-color: rgb(242, 242, 242);">
-                                                                            </td>
-                                                                            <td style="border-width: 0px; border-style: none; border-color: rgb(0, 112, 192); vertical-align: middle; padding: 0px; background-color: rgb(242, 242, 242);"
-                                                                                colspan="3"></td>
-                                                                        </tr>
-
-                                                                        <tr>
-                                                                            <td style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2"
-                                                                                rowspan="2">
-                                                                                <div align="center">
-                                                                                    <font size="3">
-                                                                                        <div>
-                                                                                            <div>学院分管学生</div>
-                                                                                        </div>
-                                                                                        <div>
-                                                                                            <div>工作副书记</div>
-                                                                                        </div>
-                                                                                    </font>
-                                                                                </div>
-                                                                                <div align="center">
-                                                                                    <font size="3">
-                                                                                        <div>
-                                                                                            <div></div>
-                                                                                        </div>
-                                                                                        <div>
-                                                                                            <div>意见</div>
-                                                                                        </div>
-                                                                                    </font>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2"
-                                                                                colspan="3">
-                                                                                <div align="left"><img
-                                                                                        src="images/selected.png"
-                                                                                        width="15px"><label
-                                                                                        for="V0_CTRL231"
-                                                                                        class="infoplus_radioLabel">
-                                                                                        <font size="3">同意</font>
-                                                                                    </label></div>
-                                                                                <div align="left"><img
-                                                                                        src="images/select_none.png"
-                                                                                        width="15px"><label
-                                                                                        for="V0_CTRL232"
-                                                                                        class="infoplus_radioLabel">
-                                                                                        <font size="3">退回</font>
-                                                                                    </label></div>
-                                                                                <div align="left"><img
-                                                                                        src="images/select_none.png"
-                                                                                        width="15px"><label
-                                                                                        for="V0_CTRL233"
-                                                                                        class="infoplus_radioLabel">
-                                                                                        <font size="3">不同意</font>
-                                                                                    </label></div>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2"
-                                                                                colspan="3">
-                                                                                <div align="left">
-                                                                                    <div class="infoplus_labelControlContainer"
-                                                                                        id="label_7d05e0ff-c00c-4431-bae3-682999305cbc_Container">
-                                                                                        <div style="font-size: small; font-family: &quot;PingFang SC&quot;, 微软雅黑; width: 100%; min-height: 50px;"
-                                                                                            title=""
-                                                                                            class="infoplus_control infoplus_labelControl"
-                                                                                            id="label_7d05e0ff-c00c-4431-bae3-682999305cbc">
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td
-                                                                                style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2">
-                                                                                <div align="center">
-                                                                                    <font size="3">审批人</font>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2"
-                                                                                colspan="3">
-                                                                                <div align="left">
-                                                                                    <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_354db938-896b-4889-b50a-86bb8442c437_Container">
-                                                                                        <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
-                                                                                            title=""
-                                                                                            class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_354db938-896b-4889-b50a-86bb8442c437">
-                                                                                            <span
-                                                                                                class="DSecretary"></span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td
-                                                                                style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2">
-                                                                                <div align="center">
-                                                                                    <font size="3">审批时间</font>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2"
-                                                                                colspan="3">
-                                                                                <div align="left">
-                                                                                    <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_ecedc880-2e24-4bb6-985c-51552a17100c_Container">
-                                                                                        <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
-                                                                                            title=""
-                                                                                            class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_ecedc880-2e24-4bb6-985c-51552a17100c">
-                                                                                            <span
-                                                                                                class="appdata"></span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr class="fake">
-                                                                            <td
-                                                                                style="border-width: 0px; border-style: none; border-color: rgb(0, 112, 192); vertical-align: middle; padding: 0px; background-color: rgb(242, 242, 242);">
-                                                                            </td>
-                                                                            <td style="border-width: 0px; border-style: none; border-color: rgb(0, 112, 192); vertical-align: middle; padding: 0px; background-color: rgb(242, 242, 242);"
-                                                                                colspan="3"></td>
-                                                                        </tr>
-
-                                                                        <tr dynamic-invisible="true"
-                                                                            style="display: none;">
-                                                                            <td style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2"
-                                                                                rowspan="2">
-                                                                                <div align="center">
-                                                                                    <font size="3">
-                                                                                        <div>
-                                                                                            <div>学院分管学生</div>
-                                                                                        </div>
-                                                                                        <div>
-                                                                                            <div>工作副书记</div>
-                                                                                        </div>
-                                                                                    </font>
-                                                                                </div>
-                                                                                <div align="center">
-                                                                                    <font size="3">
-                                                                                        <div>
-                                                                                            <div></div>
-                                                                                        </div>
-                                                                                        <div>
-                                                                                            <div>意见</div>
-                                                                                        </div>
-                                                                                    </font>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2"
-                                                                                colspan="3">
-                                                                                <div align="left"><input type="radio"
-                                                                                        value="1"
-                                                                                        style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑;"
-                                                                                        name="fieldSF1"
-                                                                                        class="xdBehavior_Boolean infoplus_control infoplus_radioControl infoplus_readonly disabled infoplus_fieldChange"
-                                                                                        title="" id="V0_CTRL234"
-                                                                                        readonly="" disabled=""><label
-                                                                                        for="V0_CTRL234"
-                                                                                        class="infoplus_radioLabel">
-                                                                                        <font size="3">同意</font>
-                                                                                    </label></div>
-                                                                                <div align="left"><input type="radio"
-                                                                                        value="2"
-                                                                                        style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑;"
-                                                                                        name="fieldSF1"
-                                                                                        class="xdBehavior_Boolean infoplus_control infoplus_radioControl infoplus_readonly disabled infoplus_fieldChange"
-                                                                                        title="" id="V0_CTRL235"
-                                                                                        readonly="" disabled=""><label
-                                                                                        for="V0_CTRL235"
-                                                                                        class="infoplus_radioLabel">
-                                                                                        <font size="3">退回</font>
-                                                                                    </label></div>
-                                                                                <div align="left"><input type="radio"
-                                                                                        value="3"
-                                                                                        style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑;"
-                                                                                        name="fieldSF1"
-                                                                                        class="xdBehavior_Boolean infoplus_control infoplus_radioControl infoplus_readonly disabled infoplus_fieldChange"
-                                                                                        title="" id="V0_CTRL236"
-                                                                                        readonly="" disabled=""><label
-                                                                                        for="V0_CTRL236"
-                                                                                        class="infoplus_radioLabel">
-                                                                                        <font size="3">不同意</font>
-                                                                                    </label></div>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr class="fake">
-                                                                            <td style="border-width: 0px; border-style: none; border-color: rgb(0, 112, 192); vertical-align: middle; padding: 0px; background-color: rgb(242, 242, 242);"
-                                                                                class="fake"></td>
-                                                                            <td style="border-width: 0px; border-style: none; border-color: rgb(0, 112, 192); vertical-align: middle; padding: 0px; background-color: rgb(242, 242, 242);"
-                                                                                colspan="3"></td>
-                                                                        </tr>
-                                                                        <tr dynamic-invisible="true"
-                                                                            style="display: none;">
-                                                                            <td style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2"
-                                                                                rowspan="1" class="fake">
-                                                                                <div align="center">
-                                                                                    <font size="3">
-                                                                                        <div>
-                                                                                            <div>学院分管学生</div>
-                                                                                        </div>
-                                                                                        <div>
-                                                                                            <div>工作副书记</div>
-                                                                                        </div>
-                                                                                    </font>
-                                                                                </div>
-                                                                                <div align="center">
-                                                                                    <font size="3">
-                                                                                        <div>
-                                                                                            <div></div>
-                                                                                        </div>
-                                                                                        <div>
-                                                                                            <div>意见</div>
-                                                                                        </div>
-                                                                                    </font>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2"
-                                                                                colspan="3">
-                                                                                <div align="left">
-                                                                                    <div class="infoplus_labelControlContainer"
-                                                                                        id="label_fc654b72-4667-4d3c-81cc-0d038cb7d977_Container">
-                                                                                        <div style="font-size: small; font-family: &quot;PingFang SC&quot;, 微软雅黑; width: 100%; min-height: 50px;"
-                                                                                            title=""
-                                                                                            class="infoplus_control infoplus_labelControl"
-                                                                                            id="label_fc654b72-4667-4d3c-81cc-0d038cb7d977">
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr class="fake">
-                                                                            <td
-                                                                                style="border-width: 0px; border-style: none; border-color: rgb(0, 112, 192); vertical-align: middle; padding: 0px; background-color: rgb(242, 242, 242);">
-                                                                            </td>
-                                                                            <td style="border-width: 0px; border-style: none; border-color: rgb(0, 112, 192); vertical-align: middle; padding: 0px; background-color: rgb(242, 242, 242);"
-                                                                                colspan="3"></td>
-                                                                        </tr>
-                                                                        <tr dynamic-invisible="true"
-                                                                            style="display: none;">
-                                                                            <td
-                                                                                style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2">
-                                                                                <div align="center">
-                                                                                    <font size="3">审批人</font>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2"
-                                                                                colspan="3">
-                                                                                <div align="left">
-                                                                                    <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_0b587cfe-f997-424b-a178-7cc79b11883a_Container">
-                                                                                        <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
-                                                                                            title=""
-                                                                                            class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_0b587cfe-f997-424b-a178-7cc79b11883a">
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr class="fake">
-                                                                            <td
-                                                                                style="border-width: 0px; border-style: none; border-color: rgb(0, 112, 192); vertical-align: middle; padding: 0px; background-color: rgb(242, 242, 242);">
-                                                                            </td>
-                                                                            <td style="border-width: 0px; border-style: none; border-color: rgb(0, 112, 192); vertical-align: middle; padding: 0px; background-color: rgb(242, 242, 242);"
-                                                                                colspan="3"></td>
-                                                                        </tr>
-                                                                        <tr dynamic-invisible="true"
-                                                                            style="display: none;">
-                                                                            <td
-                                                                                style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2">
-                                                                                <div align="center">
-                                                                                    <font size="3">审批时间</font>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2"
-                                                                                colspan="3">
-                                                                                <div align="left">
-                                                                                    <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_9c2c4f58-4187-464b-a96c-7ebaec7ed09e_Container">
-                                                                                        <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
-                                                                                            title=""
-                                                                                            class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_9c2c4f58-4187-464b-a96c-7ebaec7ed09e">
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -1657,11 +1416,11 @@
                                                                                 colspan="3">
                                                                                 <div align="left">
                                                                                     <div class="infoplus_labelControlContainer"
-                                                                                        id="label_143eb51c-4036-4fc0-8be7-86f359f784ab_Container">
+                                                                                        id="label_4c7fe888-85fa-4b0d-b684-29d0873229df_Container">
                                                                                         <div style="font-size: small; font-family: &quot;PingFang SC&quot;, 微软雅黑; width: 100%; min-height: 50px;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl"
-                                                                                            id="label_143eb51c-4036-4fc0-8be7-86f359f784ab">
+                                                                                            id="label_4c7fe888-85fa-4b0d-b684-29d0873229df">
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -1686,11 +1445,11 @@
                                                                                 colspan="3">
                                                                                 <div align="left">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_0d6b62b2-3065-48e4-8d42-d2fa484212e0_Container">
+                                                                                        id="label_86cae45f-6db5-4c39-9c41-b074c980578b_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_0d6b62b2-3065-48e4-8d42-d2fa484212e0">
+                                                                                            id="label_86cae45f-6db5-4c39-9c41-b074c980578b">
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -1715,11 +1474,11 @@
                                                                                 colspan="3">
                                                                                 <div align="left">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_5fc05930-4432-43c7-8b47-22da32842cf5_Container">
+                                                                                        id="label_9ea98e67-02d6-400f-9ff3-16b79c25c6cd_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_5fc05930-4432-43c7-8b47-22da32842cf5">
+                                                                                            id="label_9ea98e67-02d6-400f-9ff3-16b79c25c6cd">
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -1742,12 +1501,15 @@
                                                                             </td>
                                                                             <td style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2"
                                                                                 colspan="3">
-                                                                                <div align="left"><textarea
-                                                                                        style="font-size: small; height: 50px; width: 100%; min-height: 50px; display: none;"
-                                                                                        class="infoplus_control infoplus_textareaControl"
-                                                                                        title="" id="V0_CTRL287"
-                                                                                        name="fieldYZSHYJ" autoheight=""
-                                                                                        disabled="disabled"></textarea>
+                                                                                <div align="left">
+                                                                                    <div class="infoplus_labelControlContainer"
+                                                                                        id="label_78c0cd66-b33d-4eaf-8e39-518df47be2d5_Container">
+                                                                                        <div style="font-size: small; width: 100%; min-height: 50px;"
+                                                                                            title=""
+                                                                                            class="infoplus_control infoplus_labelControl"
+                                                                                            id="label_78c0cd66-b33d-4eaf-8e39-518df47be2d5">
+                                                                                        </div>
+                                                                                    </div>
                                                                                 </div>
                                                                             </td>
                                                                         </tr>
@@ -1770,13 +1532,12 @@
                                                                                 colspan="3">
                                                                                 <div align="left">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_ddf4d20a-8915-4e01-8570-a99c5ebedfe6_Container"
-                                                                                        style="display: none;">
-                                                                                        <div style="font-size: small; font-family: &quot;PingFang SC&quot;, 微软雅黑; width: 100%; display: none;"
+                                                                                        id="label_40ab8a55-2369-4b00-a3b5-3b13b031ce83_Container">
+                                                                                        <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_ddf4d20a-8915-4e01-8570-a99c5ebedfe6"
-                                                                                            disabled="disabled"></div>
+                                                                                            id="label_40ab8a55-2369-4b00-a3b5-3b13b031ce83">
+                                                                                        </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </td>
@@ -1798,13 +1559,16 @@
                                                                             </td>
                                                                             <td style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2"
                                                                                 colspan="3">
-                                                                                <div align="left"><input type="date"
-                                                                                        autocomplete="off"
-                                                                                        style="font-size: small; font-family: &quot;PingFang SC&quot;, 微软雅黑; width: 100%; display: none;"
-                                                                                        class="infoplus_control infoplus_dateControl"
-                                                                                        title="" id="V0_CTRL289"
-                                                                                        name="fieldYZSHSJ"
-                                                                                        disabled="disabled"></div>
+                                                                                <div align="left">
+                                                                                    <div class="infoplus_labelControlContainer inline"
+                                                                                        id="label_0e1fcf78-b8bd-4a6d-bc93-977e0905953b_Container">
+                                                                                        <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
+                                                                                            title=""
+                                                                                            class="infoplus_control infoplus_labelControl inline"
+                                                                                            id="label_0e1fcf78-b8bd-4a6d-bc93-977e0905953b">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
                                                                             </td>
                                                                         </tr>
                                                                         <tr class="fake">
@@ -1824,12 +1588,15 @@
                                                                             </td>
                                                                             <td style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2"
                                                                                 colspan="3">
-                                                                                <div align="left"><textarea
-                                                                                        style="font-size: small; height: 50px; font-family: &quot;PingFang SC&quot;, 微软雅黑; width: 100%; min-height: 50px; display: none;"
-                                                                                        class="infoplus_control infoplus_textareaControl"
-                                                                                        title="" id="V0_CTRL290"
-                                                                                        name="fieldSJSHYJ" autoheight=""
-                                                                                        disabled="disabled"></textarea>
+                                                                                <div align="left">
+                                                                                    <div class="infoplus_labelControlContainer"
+                                                                                        id="label_75472ce4-8336-4425-9133-c01528cf6952_Container">
+                                                                                        <div style="font-size: small; font-family: &quot;PingFang SC&quot;, 微软雅黑; width: 100%; min-height: 50px;"
+                                                                                            title=""
+                                                                                            class="infoplus_control infoplus_labelControl"
+                                                                                            id="label_75472ce4-8336-4425-9133-c01528cf6952">
+                                                                                        </div>
+                                                                                    </div>
                                                                                 </div>
                                                                             </td>
                                                                         </tr>
@@ -1852,13 +1619,12 @@
                                                                                 colspan="3">
                                                                                 <div align="left">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_e74f6999-3cdf-4b0e-9753-c10e521e293f_Container"
-                                                                                        style="display: none;">
-                                                                                        <div style="font-size: small; font-family: &quot;PingFang SC&quot;, 微软雅黑; width: 100%; display: none;"
+                                                                                        id="label_7f7b1044-af8d-4bb9-a718-363b5e74cff8_Container">
+                                                                                        <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_e74f6999-3cdf-4b0e-9753-c10e521e293f"
-                                                                                            disabled="disabled"></div>
+                                                                                            id="label_7f7b1044-af8d-4bb9-a718-363b5e74cff8">
+                                                                                        </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </td>
@@ -1880,13 +1646,16 @@
                                                                             </td>
                                                                             <td style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2"
                                                                                 colspan="3">
-                                                                                <div align="left"><input type="date"
-                                                                                        autocomplete="off"
-                                                                                        style="font-size: small; font-family: &quot;PingFang SC&quot;, 微软雅黑; width: 100%; display: none;"
-                                                                                        class="infoplus_control infoplus_dateControl"
-                                                                                        title="" id="V0_CTRL292"
-                                                                                        name="fieldSJSHSJ"
-                                                                                        disabled="disabled"></div>
+                                                                                <div align="left">
+                                                                                    <div class="infoplus_labelControlContainer inline"
+                                                                                        id="label_f3facfec-1947-4bf9-a5ab-0ff4c39d991c_Container">
+                                                                                        <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
+                                                                                            title=""
+                                                                                            class="infoplus_control infoplus_labelControl inline"
+                                                                                            id="label_f3facfec-1947-4bf9-a5ab-0ff4c39d991c">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
                                                                             </td>
                                                                         </tr>
                                                                         <tr class="fake">
@@ -1959,11 +1728,11 @@
                                                                                 colspan="3">
                                                                                 <div align="left">
                                                                                     <div class="infoplus_labelControlContainer"
-                                                                                        id="label_8dba1589-1b8d-46b9-b3c5-6858e7a56d2a_Container">
+                                                                                        id="label_b6d3cf59-bfed-44e6-8d17-671398dd0b94_Container">
                                                                                         <div style="font-size: small; font-family: &quot;PingFang SC&quot;, 微软雅黑; width: 100%; min-height: 50px;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl"
-                                                                                            id="label_8dba1589-1b8d-46b9-b3c5-6858e7a56d2a">
+                                                                                            id="label_b6d3cf59-bfed-44e6-8d17-671398dd0b94">
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -1988,11 +1757,11 @@
                                                                                 colspan="3">
                                                                                 <div align="left">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_d8be35d8-c1a8-4770-97be-5d9f1a3f3317_Container">
+                                                                                        id="label_8f19c710-8288-405c-be76-b6a1332fe12a_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_d8be35d8-c1a8-4770-97be-5d9f1a3f3317">
+                                                                                            id="label_8f19c710-8288-405c-be76-b6a1332fe12a">
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -2017,25 +1786,17 @@
                                                                                 colspan="3">
                                                                                 <div align="left">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_1175fd4b-e4e1-4279-aa37-6fe8401c14f2_Container">
+                                                                                        id="label_9269de1c-4ff0-43bf-b47a-3abe6152e184_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_1175fd4b-e4e1-4279-aa37-6fe8401c14f2">
+                                                                                            id="label_9269de1c-4ff0-43bf-b47a-3abe6152e184">
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </td>
                                                                         </tr>
-                                                                        <tr class="fake">
-                                                                            <td
-                                                                                style="border-width: 0px; border-style: none; border-color: rgb(0, 112, 192); vertical-align: middle; padding: 0px; background-color: rgb(242, 242, 242);">
-                                                                            </td>
-                                                                            <td style="border-width: 0px; border-style: none; border-color: rgb(0, 112, 192); vertical-align: middle; padding: 0px; background-color: rgb(242, 242, 242);"
-                                                                                colspan="3"></td>
-                                                                        </tr>
-                                                                        <tr dynamic-invisible="true"
-                                                                            style="display: none;">
+                                                                        <tr>
                                                                             <td
                                                                                 style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2">
                                                                                 <div align="center">
@@ -2048,31 +1809,29 @@
                                                                                     <div style="font-size: small; font-family: &quot;PingFang SC&quot;, 微软雅黑;"
                                                                                         title=""
                                                                                         class="infoplus_control infoplus_pictureControl infoplus_readonly"
-                                                                                        id="picture_2bac8129-190e-47e9-84d4-79493f65085f">
+                                                                                        id="picture_f87b39ef-82f0-4ab6-b8b3-cd9e7ed116db">
                                                                                         <div class="displayDiv"
-                                                                                            style="width: 150px; height: 100px; display: none;">
-                                                                                            <a
-                                                                                                data-lightbox="4c161311-5627-4566-9139-25c1fde2dea2"><img
+                                                                                            style="width: 47px; height: 100px;">
+                                                                                            <a data-lightbox="a32e0581-0a63-42b2-9654-7047586e78f1"
+                                                                                                href="http://e-office.nuist.edu.cn/file/353362d2-8c67-4f67-8b6a-ae7283c1b2ec"><img
                                                                                                     border="0"
-                                                                                                    class="preview"><img
-                                                                                                    border="0"></a>
+                                                                                                    class="preview"
+                                                                                                    style="display: none;"><img
+                                                                                                    border="0"
+                                                                                                    alt="Screenshot_20220814-211933_WeChat.jpg"
+                                                                                                    src="http://e-office.nuist.edu.cn/file/353362d2-8c67-4f67-8b6a-ae7283c1b2ec"
+                                                                                                    width="47"
+                                                                                                    height="100"
+                                                                                                    style="margin-top: 0px; margin-left: 0px;"></a>
                                                                                             <div class="maskDiv"
-                                                                                                style="display: none; width: 150px; height: 100px;">
+                                                                                                style="display: none; width: 47px; height: 100px;">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </td>
                                                                         </tr>
-                                                                        <tr class="fake">
-                                                                            <td
-                                                                                style="border-width: 0px; border-style: none; border-color: rgb(0, 112, 192); vertical-align: middle; padding: 0px; background-color: rgb(242, 242, 242);">
-                                                                            </td>
-                                                                            <td style="border-width: 0px; border-style: none; border-color: rgb(0, 112, 192); vertical-align: middle; padding: 0px; background-color: rgb(242, 242, 242);"
-                                                                                colspan="3"></td>
-                                                                        </tr>
-                                                                        <tr dynamic-invisible="true"
-                                                                            style="display: none;">
+                                                                        <tr>
                                                                             <td
                                                                                 style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2">
                                                                                 <div align="center">
@@ -2085,31 +1844,29 @@
                                                                                     <div style="font-size: small; font-family: &quot;PingFang SC&quot;, 微软雅黑;"
                                                                                         title=""
                                                                                         class="infoplus_control infoplus_pictureControl infoplus_readonly"
-                                                                                        id="picture_ad4e79ee-30c0-43f2-9be5-70ef1a864824">
+                                                                                        id="picture_d35941b8-a121-4663-b4e5-e95087bc96f9">
                                                                                         <div class="displayDiv"
-                                                                                            style="width: 150px; height: 100px; display: none;">
-                                                                                            <a
-                                                                                                data-lightbox="d953a0db-ce46-438c-9426-5cdf2e623c97"><img
+                                                                                            style="width: 47px; height: 100px;">
+                                                                                            <a data-lightbox="2bc76b0a-62b0-465b-aa59-a4843b8f1018"
+                                                                                                href="http://e-office.nuist.edu.cn/file/8373d033-cf03-48a3-acb9-ba90209ae04a"><img
                                                                                                     border="0"
-                                                                                                    class="preview"><img
-                                                                                                    border="0"></a>
+                                                                                                    class="preview"
+                                                                                                    style="display: none;"><img
+                                                                                                    border="0"
+                                                                                                    alt="Screenshot_20220814-211041_WeChat.jpg"
+                                                                                                    src="http://e-office.nuist.edu.cn/file/8373d033-cf03-48a3-acb9-ba90209ae04a"
+                                                                                                    width="47"
+                                                                                                    height="100"
+                                                                                                    style="margin-top: 0px; margin-left: 0px;"></a>
                                                                                             <div class="maskDiv"
-                                                                                                style="display: none; width: 150px; height: 100px;">
+                                                                                                style="display: none; width: 47px; height: 100px;">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </td>
                                                                         </tr>
-                                                                        <tr class="fake">
-                                                                            <td
-                                                                                style="border-width: 0px; border-style: none; border-color: rgb(0, 112, 192); vertical-align: middle; padding: 0px; background-color: rgb(242, 242, 242);">
-                                                                            </td>
-                                                                            <td style="border-width: 0px; border-style: none; border-color: rgb(0, 112, 192); vertical-align: middle; padding: 0px; background-color: rgb(242, 242, 242);"
-                                                                                colspan="3"></td>
-                                                                        </tr>
-                                                                        <tr dynamic-invisible="true"
-                                                                            style="display: none;">
+                                                                        <tr>
                                                                             <td
                                                                                 style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2">
                                                                                 <div align="center">
@@ -2122,11 +1879,11 @@
                                                                                     <div style="font-size: small; font-family: &quot;PingFang SC&quot;, 微软雅黑;"
                                                                                         title=""
                                                                                         class="infoplus_control infoplus_pictureControl infoplus_readonly"
-                                                                                        id="picture_6c75b1e3-8b1c-46b7-97f8-f9d6eee65442">
+                                                                                        id="picture_1a37a024-d3cd-4c36-bcd3-76e0bdd74f8b">
                                                                                         <div class="displayDiv"
                                                                                             style="width: 150px; height: 100px; display: none;">
                                                                                             <a
-                                                                                                data-lightbox="7fc0e4ba-8a1c-4293-8798-6841ee3fce54"><img
+                                                                                                data-lightbox="159d3791-ea29-47f0-8761-23882055e8ff"><img
                                                                                                     border="0"
                                                                                                     class="preview"><img
                                                                                                     border="0"></a>
@@ -2138,15 +1895,7 @@
                                                                                 </div>
                                                                             </td>
                                                                         </tr>
-                                                                        <tr class="fake">
-                                                                            <td
-                                                                                style="border-width: 0px; border-style: none; border-color: rgb(0, 112, 192); vertical-align: middle; padding: 0px; background-color: rgb(242, 242, 242);">
-                                                                            </td>
-                                                                            <td style="border-width: 0px; border-style: none; border-color: rgb(0, 112, 192); vertical-align: middle; padding: 0px; background-color: rgb(242, 242, 242);"
-                                                                                colspan="3"></td>
-                                                                        </tr>
-                                                                        <tr dynamic-invisible="true"
-                                                                            style="display: none;">
+                                                                        <tr>
                                                                             <td
                                                                                 style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2">
                                                                                 <div align="center">
@@ -2157,25 +1906,17 @@
                                                                                 colspan="3">
                                                                                 <div align="center">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_0a351cb7-ce21-407f-b61f-20ac55409bad_Container">
+                                                                                        id="label_54f99b57-42a0-4a05-91ba-0efdf30299cb_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_0a351cb7-ce21-407f-b61f-20ac55409bad">
-                                                                                        </div>
+                                                                                            id="label_54f99b57-42a0-4a05-91ba-0efdf30299cb">
+                                                                                            <span class="name"></span></div>
                                                                                     </div>
                                                                                 </div>
                                                                             </td>
                                                                         </tr>
-                                                                        <tr class="fake">
-                                                                            <td
-                                                                                style="border-width: 0px; border-style: none; border-color: rgb(0, 112, 192); vertical-align: middle; padding: 0px; background-color: rgb(242, 242, 242);">
-                                                                            </td>
-                                                                            <td style="border-width: 0px; border-style: none; border-color: rgb(0, 112, 192); vertical-align: middle; padding: 0px; background-color: rgb(242, 242, 242);"
-                                                                                colspan="3"></td>
-                                                                        </tr>
-                                                                        <tr dynamic-invisible="true"
-                                                                            style="display: none;">
+                                                                        <tr>
                                                                             <td
                                                                                 style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2">
                                                                                 <div align="center">
@@ -2186,22 +1927,17 @@
                                                                                 colspan="3">
                                                                                 <div align="center">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_816b5194-17f4-4886-ad22-1f975fa30d3d_Container">
+                                                                                        id="label_1578166a-8291-4290-bbd1-97b88074e59f_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_816b5194-17f4-4886-ad22-1f975fa30d3d">
-                                                                                        </div>
+                                                                                            id="label_1578166a-8291-4290-bbd1-97b88074e59f">
+                                                                                            <span class="appdata"></span></div>
                                                                                     </div>
                                                                                 </div>
                                                                             </td>
                                                                         </tr>
-                                                                        <tr class="fake">
-                                                                            <td style="border-width: 0px; border-style: none; border-color: rgb(0, 112, 192); vertical-align: middle; padding: 0px; background-color: rgb(242, 242, 242);"
-                                                                                colspan="4"></td>
-                                                                        </tr>
-                                                                        <tr dynamic-invisible="true"
-                                                                            style="display: none;">
+                                                                        <tr>
                                                                             <td style="BORDER-TOP: #0070c0 1pt solid; BORDER-RIGHT: #0070c0 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #0070c0 1pt solid; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: #0070c0 1pt solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: #f2f2f2"
                                                                                 colspan="4">
                                                                                 <div align="center">
@@ -2230,11 +1966,11 @@
                                                                                 colspan="3">
                                                                                 <div align="center">
                                                                                     <div class="infoplus_labelControlContainer"
-                                                                                        id="label_579e6223-58d2-48a0-a9af-272c50c58811_Container">
+                                                                                        id="label_e9a77927-bfe7-452d-927d-bdeb49e9cf09_Container">
                                                                                         <div style="font-size: small; font-family: &quot;PingFang SC&quot;, 微软雅黑; width: 100%; min-height: 50px;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl"
-                                                                                            id="label_579e6223-58d2-48a0-a9af-272c50c58811">
+                                                                                            id="label_e9a77927-bfe7-452d-927d-bdeb49e9cf09">
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -2259,11 +1995,11 @@
                                                                                 colspan="3">
                                                                                 <div align="center">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_929fa4b5-2730-4504-bde0-f1404558cb02_Container">
+                                                                                        id="label_64727703-68b6-4c2b-b730-be1060d806f3_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_929fa4b5-2730-4504-bde0-f1404558cb02">
+                                                                                            id="label_64727703-68b6-4c2b-b730-be1060d806f3">
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -2291,11 +2027,11 @@
                                                                                 colspan="3">
                                                                                 <div align="center">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_0decb4c9-4485-4819-a709-46c702441197_Container">
+                                                                                        id="label_4135586d-be61-4b7f-8c59-0981f3e7bde5_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_0decb4c9-4485-4819-a709-46c702441197">
+                                                                                            id="label_4135586d-be61-4b7f-8c59-0981f3e7bde5">
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -2372,11 +2108,11 @@
                                                                                 colspan="3">
                                                                                 <div align="left">
                                                                                     <div class="infoplus_labelControlContainer"
-                                                                                        id="label_95f398a3-58fd-4dfe-b83a-18ee54e0f2d2_Container">
+                                                                                        id="label_e05f189a-cc1a-41e0-9aff-4071cd52ebf9_Container">
                                                                                         <div style="font-size: small; font-family: &quot;PingFang SC&quot;, 微软雅黑; width: 100%; min-height: 50px;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl"
-                                                                                            id="label_95f398a3-58fd-4dfe-b83a-18ee54e0f2d2">
+                                                                                            id="label_e05f189a-cc1a-41e0-9aff-4071cd52ebf9">
                                                                                             0</div>
                                                                                     </div>
                                                                                 </div>
@@ -2401,11 +2137,11 @@
                                                                                 colspan="3">
                                                                                 <div align="center">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_48d141f0-0bb6-4e38-9fa9-2e2a7cae99a7_Container">
+                                                                                        id="label_9d0d6a69-4ae8-4cc3-9b7d-47cccdaf3e5b_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_48d141f0-0bb6-4e38-9fa9-2e2a7cae99a7">
+                                                                                            id="label_9d0d6a69-4ae8-4cc3-9b7d-47cccdaf3e5b">
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -2430,11 +2166,11 @@
                                                                                 colspan="3">
                                                                                 <div align="center">
                                                                                     <div class="infoplus_labelControlContainer inline"
-                                                                                        id="label_7121fcc1-24a2-41a2-95ae-d86d17e8cb95_Container">
+                                                                                        id="label_9ccde5a5-71e3-4890-b339-7f841cf6befb_Container">
                                                                                         <div style="FONT-SIZE: small;font-family:'PingFang SC',微软雅黑; WIDTH: 100%;"
                                                                                             title=""
                                                                                             class="infoplus_control infoplus_labelControl inline"
-                                                                                            id="label_7121fcc1-24a2-41a2-95ae-d86d17e8cb95">
+                                                                                            id="label_9ccde5a5-71e3-4890-b339-7f841cf6befb">
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -2461,13 +2197,12 @@
                         style="width: 360px; display: block; height: 100%;">
                         <ul>
                             <li class="remark_item" style="display: block;">
-                                <div class="form_remark_title"><span class="color_b2" style=""><span class=""><b>您(<span
-                                                    class="name"></span>)</b></span> 正在填写/办理<b>申请人销假</b></span><span
-                                        style="float: right;"><span
-                                            class="form_remark_time form_remark_todo remark_display_time"
-                                            title=""
-                                            datetime="">约3小时之前</span><span
-                                            class="form_remark_read round-corner">已阅读</span></span></div>
+                                <div class="form_remark_title"><span class="color_b2" style=""><span
+                                            class=""><b>您(<span class="name"></span>)</b></span> 填写/办理了<b><a target="_blank" title="查看该环节表单的快照"
+                                                href="">申请人销假</a></b>(<span
+                                            class="color_b3"><b>确认销假</b></span>)</span><span class="form_remark_time"
+                                        title="指派时间:2022/08/14 11:23  办理时间:2022/08/14 21:20">约1小时之前</span>
+                                </div>
                             </li>
                             <div class="lastMore" style="display: none;">
                                 <div style="height: 0px;"><span class="moreHistory" title="点击展开历史"><i
@@ -2476,30 +2211,25 @@
                             <li class="remark_item" style="">
                                 <div class="form_remark_title"><span class="color_b2" style=""><span class=""><b><span
                                                     class="DSecretary"></span></b></span>
-                                        填写/办理了<b><a target="_blank" title="查看该环节表单的快照"
-                                                href="">学院分管学生工作副书记审核意见</a></b>(<span
-                                            class="color_b3"><b>提交</b></span>)</span><span
-                                        class="form_remark_time remark_display_time"
-                                        title=""
-                                        datetime="">约3小时之前</span></div>
+                                        填写/办理了<b><a target="_blank" title="查看该环节表单的快照" href="">学院分管学生工作副书记审核意见</a></b>(<span
+                                            class="color_b3"><b>提交</b></span>)</span><span class="form_remark_time remark_display_time"
+                                        title="指派时间:2022/07/31 09:14  办理时间:2022/07/31 09:27" datetime="2022-07-31T01:27:47.000Z">约3小时之前</span></div>
                             </li>
                             <li class="remark_item" style="">
-                                <div class="form_remark_title"><span class="color_b2" style=""><span class=""><b><span
-                                                    class="counselor"></b></span> 填写/办理了<b><a target="_blank"
-                                                title="查看该环节表单的快照" href="">辅导员审核意见</a></b>(<span
-                                            class="color_b3"><b>提交</b></span>)</span><span
-                                        class="form_remark_time remark_display_time"
-                                        title=""
-                                        datetime="">约4小时之前</span></div>
+                                <div class="form_remark_title"><span class="color_b2" style=""><span
+                                            class=""><b><span class="counselor"></span></b></span> 填写/办理了<b><a target="_blank" title="查看该环节表单的快照"
+                                                href="">辅导员审核意见</a></b>(<span
+                                            class="color_b3"><b>提交</b></span>)</span><span class="form_remark_time"
+                                        title="指派时间:2022/08/14 11:18  办理时间:2022/08/14 11:23">约4小时之前</span>
+                                </div>
                             </li>
                             <li class="remark_item" style="border-bottom: none;">
-                                <div class="form_remark_title"><span class="color_b2" style=""><span class=""><b>您(<span
-                                                    class="name"></span>)</b></span> 填写/办理了<b><a target="_blank"
-                                                title="查看该环节表单的快照" href="">申请人</a></b>(<span
-                                            class="color_b3"><b>提交</b></span>)</span><span
-                                        class="form_remark_time remark_display_time"
-                                        title=""
-                                        datetime="">约4小时之前</span></div>
+                                <div class="form_remark_title"><span class="color_b2" style=""><span
+                                            class=""><b>您(<span class="name"></span>)</b></span> 填写/办理了<b><a target="_blank" title="查看该环节表单的快照"
+                                                href="">申请人</a></b>(<span
+                                            class="color_b3"><b>提交</b></span>)</span><span class="form_remark_time"
+                                        title="指派时间:2022/08/14 11:17  办理时间:2022/08/14 11:18">约4小时之前</span>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -2517,13 +2247,13 @@
         </div>
     </div>
 
-
     <div id="div_invoice"></div>
-    <iframe id="alive" src="" style="display: none; border:0">unsupported.</iframe>
+    <iframe id="alive" src="cid:frame-D093867BA8BADF2E1145DE6387E1E74A@mhtml.blink"
+        style="display: none; border:0">unsupported.</iframe>
 
-    <script type="text/javascript"></script>
-    <script src="https://apps.bdimg.com/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script src="js/name.js"></script>
+<script src="https://apps.bdimg.com/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="js/name.js"></script>
+
 </body>
 
 </html>
