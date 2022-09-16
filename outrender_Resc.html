@@ -33,7 +33,7 @@
         href="http://e-office.nuist.edu.cn/infoplus/form/css/1b17faf0245e53f306dbd0b9a6a25a08.css">
     -->
 
-    <link href="http://e-office.nuist.edu.cn/infoplus/static/css/infoplus.css?v=20211117-095344" rel="stylesheet">
+    <link href="css/infoplusr.css" rel="stylesheet">
     <link href="css/mobiler.css" rel="stylesheet">
     <link href="css/themer.css" rel="stylesheet">
     <link href="css/themerr.css" rel="stylesheet">
@@ -41,6 +41,108 @@
     <link type="text/css" media="all" rel="stylesheet" id="infoplus_view_7864_0_cached_link" href="css/1b17faf0245e53f306dbd0b9a6a25a08.css">
 
 </head>
+
+<style>
+    div.form_remark_title {
+        overflow: hidden
+    }
+
+    div.form_remark_title:before {
+        content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAoJJREFUeNosUktrFEEQrq7unp1ZdpcNCTEPIoRs8EH0EEiU4CUGDxLw4JKzOSTiIYIoIv4GEbx5yCEePYwHhYCHSBA8GU8i+EgiicHHbgwmu8nOs7usWa2e6Wm6v6qvvq9H1Ig2tuD5WpDEJCQaY6RFpVSapohoJSVJorV0lZ4agZGTWn3ehOXl5V11BoWTWsNQNCIIgmyBSAqISErRtLS6+kGIi7Lr3O36Ud5gBwknSQUZ6x29GT3V0VsOf++sRXpQoGch14oohOKPA0dFUSSlNAC8ACBrkvv3qgBgAaanT9958NXzkEA4jmNiwxhsGn1oHe4hJ1XS/DlzaaAXbA+YfrD9mFy50GNadQVZk7Eq7Mcsy9owDP+p5OjsBENGgGASKWSplGfR7AQrabcASFHiAIatWhDtSq1evmpYoWNCfhLAldffSGBi9kyyryyYIPrPIISI45jLFItF31/lWmEIS0svhoaO5/P5ZrPJMGZgmKIkgDRM4+BYgRbvTgiEp+8mr95c5LP5+bkboyAuV64/fFv7cyB0IQ0RW60W+91oNObmJkTWOZwfg1wux4XHx4DzOWZnx1k0i2ESlVrNaJd+Vbr4KOW3z6hHtybZ6wG2FrOd4S4F4fYhFVFJxQLYhEKhYAna3gDzVCoD0A7i0b4T13UjgszPVhDw52PNfvoO1KccBEQwNktDwVDNFO83YbvugXNQLpcVU7P9pVJpYeHx2UHd3Vl2ncw6Fs3MgGprp75Rk06pzyrFm2Lx2brv+3VnmIxnjgz/ArumwffIOVwrH0qtdYyx46bd8Xq1WhV7RL7/5cnKehRIF1z2IS1lnKIdXoA8pyrlhGtTlZmZE38FGACxemPwwLwFJQAAAABJRU5ErkJggg==);
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-right: 6px;
+        position: relative;
+        top: 2px
+    }
+
+    div.attachment_delete_button {
+    background: url(../img/ico_delete.gif) no-repeat left center;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+}
+
+div.infoplus_pictureControl {
+    display: inline-block;
+}
+
+div.infoplus_pictureControl .displayDiv {
+    background-color: white;
+    position: relative;
+    overflow-y: hidden;
+}
+
+div.infoplus_pictureControl .displayDiv.loading {
+    border: 1px solid #757575;
+}
+
+div.infoplus_pictureControl .maskDiv {
+    filter: alpha(Opacity=50);
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+}
+
+div.infoplus_pictureControl .preview {
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=image);
+}
+
+div.infoplus_pictureControl .uploadDiv {
+    /*background: */
+    background: linear-gradient(transparent, transparent), url("../img/add_image.svg") no-repeat scroll center center;
+    border: 1px dashed #aaaaaa;
+}
+
+div.infoplus_pictureControl .uploadProgress {
+    background-color: #F5F5F5;
+    border: 1px solid #DCDCDC;
+    font-weight: bold;
+    max-width: 448px;
+    padding: 4px 4px 4px 8px;
+    text-align: left;
+}
+
+div.infoplus_pictureControl_delete {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    bottom: 0;
+    right: -24px;
+    background: url("../img/ico_recycle.png") no-repeat scroll 0 0 transparent;
+    background-size: 100% 100%;
+    cursor: pointer;
+    display: none;
+    opacity: 0.7;
+}
+
+div.infoplus_pictureControl .displayDiv:hover {
+    overflow: visible;
+}
+
+div.infoplus_pictureControl .displayDiv.uploading:hover {
+    overflow: hidden;
+}
+
+div.infoplus_pictureControl .displayDiv:hover .infoplus_pictureControl_delete {
+    display: inline-block;
+}
+
+div.infoplus_pictureControl.infoplus_readonly .displayDiv:hover .infoplus_pictureControl_delete {
+    display: none;
+}
+
+div.infoplus_pictureControl.infoplus_readonly .uploadDiv {
+    display: none;
+}
+
+</style>
 
 <body>
     <div id="help_content"></div>
@@ -1947,6 +2049,7 @@
                                                                                         <div title="点击上传图片"
                                                                                             class="uploadDiv"
                                                                                             style="position: relative; overflow: hidden; direction: ltr; width: 150px; height: 100px;">
+                                                                                            <img src="images/previewload_.png" width="150px">
                                                                                             <input
                                                                                                 qq-button-id="5ec21c18-0d1d-404b-b5a0-dffb3bcbdeb4"
                                                                                                 title=""
@@ -1955,6 +2058,8 @@
                                                                                                 name="qqfile"
                                                                                                 style="position: absolute; right: 0px; top: 0px; font-family: Arial; font-size: 118px; margin: 0px; padding: 0px; cursor: pointer; opacity: 0; height: 100px;">
                                                                                         </div>
+                                                                                        
+                                                                                        
                                                                                     </div>
                                                                                 </div>
                                                                             </td>
@@ -1990,6 +2095,7 @@
                                                                                         <div title="点击上传图片"
                                                                                             class="uploadDiv"
                                                                                             style="position: relative; overflow: hidden; direction: ltr; width: 150px; height: 100px;">
+                                                                                            <img src="images/previewload_.png" width="150px">
                                                                                             <input
                                                                                                 qq-button-id="e54ef5a2-b9d4-40b0-97d9-1f0043243776"
                                                                                                 title=""
@@ -2033,6 +2139,7 @@
                                                                                         <div title="点击上传图片"
                                                                                             class="uploadDiv"
                                                                                             style="position: relative; overflow: hidden; direction: ltr; width: 150px; height: 100px;">
+                                                                                            <img src="images/previewload_.png" width="150px">
                                                                                             <input
                                                                                                 qq-button-id="0b8c4edd-4428-4c66-825c-90b143ed1c23"
                                                                                                 title=""
